@@ -24,7 +24,6 @@ import { WarningDialogComponent } from '../dialogs/warning-dialog/warning-dialog
       DashboardMessagesComponent
       ,MessageListComponent
       ,EllipsisPipe
-      ,WarningDialogComponent
     ],
   imports: [
     CommonModule
@@ -34,7 +33,6 @@ import { WarningDialogComponent } from '../dialogs/warning-dialog/warning-dialog
     ,MatCardModule
     ,MatButtonModule
     ,FlexLayoutModule
-    ,MatDialogModule
     ,MatIconModule
   ]
 })

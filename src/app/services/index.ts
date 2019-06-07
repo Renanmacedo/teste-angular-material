@@ -40,10 +40,8 @@ export default class Service<T> implements  OnInit {
             let hasDelete = false;
             if(path == 'message'){
                 let index = MESSAGES.findIndex(m => m.id = id);
-                console.log(index);
                 if(index !== -1){
                     MESSAGES.splice(index, 1);
-                    console.log(MESSAGES);
                     hasDelete = true;
                 }
             }

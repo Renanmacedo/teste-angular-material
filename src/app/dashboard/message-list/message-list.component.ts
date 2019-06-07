@@ -18,7 +18,7 @@ export class MessageListComponent implements OnInit {
   
   _messages: Array<any>;
   
-  // emmiter events the component dead
+  // emmiter events the component parent
   @Output() public removeMessage: EventEmitter<MessageModel> = new EventEmitter();
 
   
@@ -30,7 +30,6 @@ export class MessageListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
     if(this._messages.length == 0){
       this.messagesIsEmpty = true;
     }
@@ -52,6 +51,11 @@ export class MessageListComponent implements OnInit {
   }
   _removeMessage(){
     this._showMessage = false;
+    let indexRemove = this._messages.findIndex(message => message.id == this.message.id);
+    if(indexRemove !== -1){
+      this._messages.splice(indexRemove, 1);
+      this.ngOnInit();
+    }
     this.removeMessage.emit(this.message);
   }
 }

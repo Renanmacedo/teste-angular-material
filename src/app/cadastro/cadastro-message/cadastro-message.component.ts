@@ -65,6 +65,7 @@ export class CadastroMessageComponent implements OnInit {
     this.messageService.saveMessage(this.message)
       .subscribe( success => {
         let dialog = this.dialog.open(SuccessDialogComponent, this.dialogConfig);
+        dialog.componentInstance.message = "Mensagem cadastrada com sucesso!"
         dialog.afterClosed()
         .subscribe(result => {
           this.location.back();

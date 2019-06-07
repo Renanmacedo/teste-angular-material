@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list'
 // Flex layout 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavigationComponent } from './navigation/navigation.component';
+import { SharedModule } from './shared/shared.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     ,MatListModule
     ,FlexLayoutModule
     ,CommonModule
+    ,SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,7 +13,6 @@ import {
    , MatSelectModule
    , MatFormFieldModule
    , MatButtonModule
-   , MatDialogModule
 } from '@angular/material';
 
 
@@ -27,12 +26,7 @@ import { DirectiveModule } from '../directives/directives.module';
 @NgModule({
   declarations: [
     CadastroMessageComponent
-    ,SuccessDialogComponent
   ],
-  entryComponents: [
-    SuccessDialogComponent
-  ]
-  ,
   imports: [
     CommonModule
     , CadastroRoutingModule
@@ -43,8 +37,7 @@ import { DirectiveModule } from '../directives/directives.module';
     , FlexLayoutModule
     , TextMaskModule
     , MatFormFieldModule
-    , MatDialogModule
-    ,MatButtonModule
+    , MatButtonModule
     , DirectiveModule
   ]
 })

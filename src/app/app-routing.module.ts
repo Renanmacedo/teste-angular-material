@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'dashboard'
+    path: ''
     ,loadChildren: './dashboard/dashboard.module#DashboardModule'
   }
   ,{
@@ -12,13 +12,13 @@ const routes: Routes = [
   }  
   ,{
     path: ''
-    ,redirectTo: 'dashboard'
+    ,redirectTo: ''
     ,pathMatch: 'full'
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
