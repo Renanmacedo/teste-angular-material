@@ -1,0 +1,20 @@
+
+
+.mat-side-app {
+    padding: 10px;
+}
+p[line-height]{
+    line-height: 0.5em;
+}
+@mixin  border($width, $color, $style){
+    border-bottom-color: $color;
+    border-bottom-style: $style;
+    border-bottom-width: $width
+}
+/**
+* @override 
+*/
+.mat-list-base .mat-list-item {
+    
+    @include border(1px, #ddd, solid);
+}

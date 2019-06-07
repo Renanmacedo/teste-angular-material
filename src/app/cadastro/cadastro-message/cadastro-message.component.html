@@ -1,0 +1,46 @@
+
+<div fxLayout="row" fxLayout.xs="row" fxLayout.sm="row" fxLayout.md="row" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<mat-card fxFlex.xs="100%" > 
+  <mat-card-title>
+    Cadastro de Mensagem
+  </mat-card-title>
+
+  <form   fxLayoutAlign="start" novalidate autocomplete="off" [formGroup]="formCadastro" (ngSubmit)="saveMessage()" fxLayoutGap="10px">
+  <mat-card-content>
+      <mat-form-field>
+        <input alphaNumericOnly placeholder="Digite seu nome" matInput fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px"formControlName="nome" type="text" name="nome"/>
+        <mat-error *ngIf="_hasError('nome', 'required')">O nome é requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <input placeholder="Digit seu e-mail" matInput formControlName="email"  name="email" />
+        <mat-error *ngIf="_hasError('email', 'required')">O e-mail é requerido</mat-error>
+        <mat-error *ngIf="_hasError('email', 'invalid')">O e-mail não é válido</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <input  placeholder="Digite seu telefone" matInput formControlName="telefone" [textMask]="{mask: phoneMask}"  value="" name="telefone" />
+        <mat-error *ngIf="_hasError('telefone', 'required')">O telefone é requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-select placeholder="Selecione o assunto" formControlName="assunto" required>
+          <mat-option [value]="i" *ngFor="let ass of assuntos; let i = index;">{{ass}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="_hasError('assunto', 'required')">O assunto é requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+          <textarea  placeholder="Digite sua mensagem" matInput  formControlName="message" name="message"></textarea>
+          <mat-error *ngIf="_hasError('message','maxlength')"> Número máximo de caracteres excedidos</mat-error>
+          <mat-error *ngIf="_hasError('message', 'required')">A mensagem é requerido</mat-error>
+          <mat-hint *ngIf="formCadastro.controls['message'].value" align="end">
+            {{formCadastro.controls['message'].value.length}}/{{_maxLenthMessage}}
+          </mat-hint>
+          <mat-hint *ngIf="!formCadastro.controls['message'].value" align="end">
+              0/{{_maxLenthMessage}}
+            </mat-hint>
+      </mat-form-field>
+      <mat-card-actions align="end">
+          <button  mat-raised-button color="primary" [disabled]="!formCadastro.valid">Enviar</button>
+        </mat-card-actions>
+    </mat-card-content>
+  </form>
+</mat-card>
+</div>
